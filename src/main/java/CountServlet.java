@@ -6,15 +6,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = {"/hello"})
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/count"})
+public class CountServlet extends HttpServlet {
+    private int counter = 0;
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        String name = "World";
-        if(req.getParameterMap().containsKey("name")) {
-            name = req.getParameter("name");
-        }
+
+        counter = "true".equalsIgnoreCase(req.getParameter("reset"))
+                ? 0
+                : counter;
+
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        out.println(String.format("<h1>Hello, %s!</h1>", name));
+        out.println(String.format("<h1>Count: %d</h1>", ++counter));
     }
 }
