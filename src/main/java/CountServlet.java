@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = {"/count"})
+@WebServlet(name = "CountServlet", urlPatterns = {"/count"})
 public class CountServlet extends HttpServlet {
     private int counter = 0;
     @Override
