@@ -1,0 +1,7 @@
+.jumbotron {
+    background-image: url(../media/pizza.png);
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 346px;
+}
