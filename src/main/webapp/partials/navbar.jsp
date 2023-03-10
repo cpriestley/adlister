@@ -22,6 +22,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/pizza-order">Pizza Order</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/pickcolor">Pick Color</a>
+                </li>
             </ul>
         </div>
     </div>

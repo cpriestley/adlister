@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <jsp:include page="partials/head.jsp" />
@@ -10,7 +10,7 @@
 </header>
 <main>
     <div class="container">
-        <h1>Count: ${counter}</h1>
+        <h1>Count: ${requestScope.counter}</h1>
     </div>
 </main>
 <footer>

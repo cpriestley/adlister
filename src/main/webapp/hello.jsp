@@ -10,7 +10,7 @@
 </header>
 <main>
     <div class="container">
-        <h1>Hello there, ${name}!</h1>
+        <h1>Hello there, ${requestScope.name}!</h1>
     </div>
 </main>
 <footer>
