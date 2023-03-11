@@ -18,6 +18,6 @@ public class CountServlet extends HttpServlet {
                 : counter;
 
         req.setAttribute("counter", ++counter);
-        req.getRequestDispatcher("/count.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/count.jsp").forward(req, res);
     }
 }

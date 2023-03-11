@@ -8,7 +8,7 @@ import java.io.IOException;
 public class PizzaOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("pizzaOrder.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/pizzaOrder.jsp").forward(request, response);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class PizzaOrderServlet extends HttpServlet {
                 request.getParameter("toppings"),
                 request.getParameter("delivery-address")
         );
-        request.getRequestDispatcher("pizzaOrder.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/pizzaOrder.jsp").forward(request, response);
     }
 }

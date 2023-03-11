@@ -22,7 +22,7 @@ public class GuessServlet extends HttpServlet {
             answer = getRandom();
             inProgress = true;
         }
-        request.getRequestDispatcher("/guess.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/guess.jsp").forward(request, response);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class GuessServlet extends HttpServlet {
         List<String> possibles = List.of("1", "2", "3");
 
         if (!possibles.contains(guess)){
-            request.getRequestDispatcher("/guess.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/guess.jsp").forward(request, response);
             return;
         }
 
@@ -41,6 +41,6 @@ public class GuessServlet extends HttpServlet {
         } else {
             request.setAttribute("outcome", "You guessed incorrectly!");
         }
-        request.getRequestDispatcher("/guessOutcome.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/guessOutcome.jsp").forward(request, response);
     }
 }

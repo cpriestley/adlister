@@ -4,10 +4,11 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "PickColorServlet", urlPatterns = {"/pickcolor"})
-public class PickColorServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", value = "/logout")
+public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/pickColor.jsp").forward(request, response);
+        request.getSession().invalidate();
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 }

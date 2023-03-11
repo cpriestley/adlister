@@ -3,12 +3,12 @@
 <!doctype html>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp" />
+    <jsp:include page="/WEB-INF/partials/head.jsp" />
     <title>Login</title>
 </head>
 <body>
 <header>
-    <jsp:include page="partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <title>Login</title>
 </header>
 <main>

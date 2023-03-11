@@ -2,12 +2,12 @@
 <!doctype html>
 <html>
 <head>
-    <jsp:include page="partials/headNoCss.jsp" flush="true"/>
+    <jsp:include page="/WEB-INF/partials/headNoCss.jsp" flush="true"/>
     <title>View Color</title>
 </head>
 <body style="background-color:${requestScope.bgColor};">
 <header>
-    <jsp:include page="partials/navbar.jsp" flush="true"/>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" flush="true"/>
 </header>
 <main>
     <div class="container">
@@ -15,7 +15,7 @@
     </div>
 </main>
 <footer>
-    <jsp:include page="partials/footer.jsp" flush="true"/>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" flush="true"/>
 </footer>
 </body>
 </html>
