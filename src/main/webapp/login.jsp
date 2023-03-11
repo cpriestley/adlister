@@ -1,14 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%
-    if ("post".equalsIgnoreCase(request.getMethod())) {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if ("admin".equals(username) && "password".equals(password)) {
-            response.sendRedirect("profile.jsp");
-        }
-    }
-%>
 <!doctype html>
 <html>
 <head>
@@ -22,7 +13,7 @@
 </header>
 <main>
     <div class="container m-auto">
-        <form action="login.jsp" method="post">
+        <form action="./login" method="post">
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
