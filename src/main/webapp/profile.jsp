@@ -10,7 +10,7 @@
     <jsp:include page="partials/navbar.jsp"/>
 </header>
 <main>
-    <div class="container text-center">
+    <div class="container text-center py-5">
         <h1>User Profile</h1>
     </div>
 </main>
