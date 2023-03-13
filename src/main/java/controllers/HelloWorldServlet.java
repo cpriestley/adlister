@@ -1,3 +1,5 @@
+package controllers;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -6,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "HelloWorldServlet", urlPatterns = {"/hello"})
+@WebServlet(name = "controllers.HelloWorldServlet", urlPatterns = {"/hello"})
 public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         String name = req.getParameter("name");

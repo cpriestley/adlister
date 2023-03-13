@@ -1,6 +1,6 @@
 package services;
 
-import beans.Ad;
+import models.Ad;
 
 import java.util.List;
 

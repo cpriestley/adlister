@@ -1,4 +1,6 @@
-import beans.Ad;
+package controllers;
+
+import models.Ad;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -6,7 +8,7 @@ import services.DaoFactory;
 
 import java.io.IOException;
 
-@WebServlet(name = "CreateAdServlet", value = "/ads/create")
+@WebServlet(name = "controllers.CreateAdServlet", value = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

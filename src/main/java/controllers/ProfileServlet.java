@@ -1,10 +1,12 @@
+package controllers;
+
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "ProfileServlet", value = "/profile")
+@WebServlet(name = "controllers.ProfileServlet", value = "/profile")
 public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,10 +1,12 @@
+package controllers;
+
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "ViewColorServlet", urlPatterns = {"/viewcolor"})
+@WebServlet(name = "controllers.ViewColorServlet", urlPatterns = {"/viewcolor"})
 public class ViewColorServlet extends HttpServlet {
 
     @Override

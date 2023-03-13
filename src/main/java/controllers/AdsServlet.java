@@ -1,4 +1,6 @@
-import beans.Ad;
+package controllers;
+
+import models.Ad;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -7,7 +9,7 @@ import services.DaoFactory;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdsServlet", urlPatterns = {"/ads"})
+@WebServlet(name = "controllers.AdsServlet", urlPatterns = {"", "/ads"})
 public class AdsServlet extends HttpServlet {
 
     @Override

@@ -1,10 +1,12 @@
+package controllers;
+
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "PizzaOrderServlet", value = "/pizza-order")
+@WebServlet(name = "controllers.PizzaOrderServlet", value = "/pizza-order")
 public class PizzaOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

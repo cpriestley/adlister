@@ -1,3 +1,5 @@
+package controllers;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -6,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "CountServlet", urlPatterns = {"/count"})
+@WebServlet(name = "controllers.CountServlet", urlPatterns = {"/count"})
 public class CountServlet extends HttpServlet {
 
     private int counter = 0;

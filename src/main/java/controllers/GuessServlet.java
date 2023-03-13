@@ -1,3 +1,5 @@
+package controllers;
+
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -6,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.random.RandomGenerator;
 
-@WebServlet(name = "GuessServlet", value = "/guess")
+@WebServlet(name = "controllers.GuessServlet", value = "/guess")
 public class GuessServlet extends HttpServlet {
 
     private String answer = getRandom();
