@@ -3,20 +3,35 @@ package controllers;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import models.User;
+import services.DaoFactory;
 
 import java.io.IOException;
 
-@WebServlet(name = "RegisterServlet", value = "/RegisterServlet")
+@WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: show the registration form
+        request.getRequestDispatcher("/WEB-INF/ads/register.jsp")
+                .forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        // TODO: ensure the submitted information is valid
-        // TODO: create a new user based off of the submitted information
-        // TODO: if a user was successfully created, send them to their profile
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String passwordConfirmation = request.getParameter("passwordConfirmation");
+        User user = new User(username, email, password);
+
+        if (DaoFactory.getUsersDao().findByUsername(username) != null ||
+                DaoFactory.getUsersDao().findByEmail(username) != null ||
+                !password.equals(passwordConfirmation)) {
+            response.sendRedirect("/register");
+            return;
+        }
+
+        DaoFactory.getUsersDao().insert(user);
+        response.sendRedirect("/profile");
     }
 }

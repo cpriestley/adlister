@@ -13,6 +13,8 @@
 </header>
 <main>
     <div class="container m-auto">
+        <h1 class="my-2">Login</h1>
+        <hr>
         <form action="./login" method="post">
             <fieldset class="width-80">
                 <div class="form-group">

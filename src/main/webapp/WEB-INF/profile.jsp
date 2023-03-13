@@ -10,8 +10,8 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 </header>
 <main>
-    <div class="container text-center py-5">
-        <h1 class="my-5">User Profile</h1>
+    <div class="container">
+        <h1 class="my-2">User Profile</h1>
         <hr>
         <form action="./logout" method="get">
             <fieldset class="width-80">

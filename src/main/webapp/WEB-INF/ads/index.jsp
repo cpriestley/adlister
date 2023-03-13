@@ -16,8 +16,8 @@
       <hr>
       <c:forEach var="item" items="${requestScope.ads}">
           <div class="item">
-              <h3>${item.title}</h3>
-              <p>${item.description}</p>
+              <h3><c:out value="${item.title}"/></h3>
+              <p><c:out value="${item.description}" /></p>
           </div>
       </c:forEach>
   </div>
