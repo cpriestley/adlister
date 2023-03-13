@@ -6,6 +6,10 @@
     <title>Create Ad</title>
 </head>
 <body>
+<header>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" flush="true" />
+</header>
+<main>
 <div class="container">
     <h1>Create a new Ad</h1>
     <form action="${pageContext.request.contextPath}/ads/create" method="post">
@@ -20,5 +24,9 @@
         <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>
+</main>
+<footer>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" flush="true" />
+</footer>
 </body>
 </html>

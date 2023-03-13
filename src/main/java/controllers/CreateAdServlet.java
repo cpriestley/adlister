@@ -4,6 +4,7 @@ import models.Ad;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import models.User;
 import services.DaoFactory;
 
 import java.io.IOException;
@@ -12,14 +13,18 @@ import java.io.IOException;
 public class CreateAdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-                .forward(request, response);
+        if (request.getSession().getAttribute("user") != null) {
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+            return;
+        }
+        response.sendRedirect("/login");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        User user = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(
-                1, // for now we'll hardcode the user id
+                user.getId(),
                 request.getParameter("title"),
                 request.getParameter("description")
         );

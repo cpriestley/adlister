@@ -1,63 +1,60 @@
 package services;
 
-import models.Ad;
 import com.mysql.cj.jdbc.Driver;
 import configs.Config;
+import models.User;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class MySQLAdsDao implements Ads {
+public class MySQLUsersDao implements Users {
 
     private final Connection connection;
 
-    public MySQLAdsDao(Config config) {
-
+    public MySQLUsersDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
-            connection = DriverManager
-                    .getConnection(
-                            config.getUrl(),
-                            config.getUserName(),
-                            config.getPassword());
+            this.connection = DriverManager.getConnection(
+                    config.getUrl(),
+                    config.getUserName(),
+                    config.getPassword()
+            );
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public List<Ad> all() {
-        String query = "SELECT * FROM ads";
+    public User findByUsername(String username) {
+        String query = "SELECT * FROM users WHERE username = ?";
         ResultSet rs;
-        List<Ad> ads = new ArrayList<>();
+        User user = null;
         try {
             PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, username);
             rs = statement.executeQuery();
-            while (rs.next()) {
-                ads.add(new Ad(
+            if (rs.next()) {
+                user = new User(
                         rs.getLong("id"),
-                        rs.getLong("user_id"),
-                        rs.getString("title"),
-                        rs.getString("description")
-                        )
+                        rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("password")
                 );
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return ads;
+        return user;
     }
 
     @Override
-    public Long insert(Ad ad) {
-        String query = "INSERT INTO ads (user_id, title, description) VALUES (?, ?, ?)";
+    public Long insert(User user) {
+        String query = "INSERT INTO users (email, password, username) VALUES (?, ?, ?)";
         ResultSet rs;
         try {
             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, ad.getUserId());
-            statement.setString(2, ad.getTitle());
-            statement.setString(3, ad.getDescription());
+            statement.setString(1, user.getEmail());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, user.getUsername());
             statement.executeUpdate();
             rs = statement.getGeneratedKeys();
             rs.next();

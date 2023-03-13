@@ -15,7 +15,7 @@
         <hr>
         <form action="./logout" method="get">
             <fieldset class="width-80">
-                <p>Welcome, ${sessionScope.user}</p>
+                <p>Welcome, ${sessionScope.user.getUsername()}</p>
                 <button class="btn btn-block">Logout</button>
             </fieldset>
         </form>

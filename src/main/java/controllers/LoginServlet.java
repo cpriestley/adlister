@@ -1,8 +1,12 @@
 package controllers;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import models.User;
+import services.DaoFactory;
 
 import java.io.IOException;
 
@@ -22,8 +26,10 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        if ("admin".equals(username) && "password".equals(password)) {
-            request.getSession().setAttribute("user", username);
+        User user = DaoFactory.getUsersDao().findByUsername(username);
+
+        if (user != null && password.equals(user.getPassword())) {
+            request.getSession().setAttribute("user", user);
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
             return;
         }
