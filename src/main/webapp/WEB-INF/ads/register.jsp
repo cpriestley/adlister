@@ -2,7 +2,6 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp" flush="true" />
-    <script src="${pageContext.request.contextPath}/resources/js/register.js"></script>
     <title>New User Registration</title>
 </head>
 <body>
