@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.User;
+import org.mindrot.jbcrypt.BCrypt;
 import services.DaoFactory;
 
 import java.io.IOException;
@@ -24,11 +25,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
-        if (user != null && password.equals(user.getPassword())) {
+        if (user != null && BCrypt.checkpw(request.getParameter("password"), user.getPassword())) {
             request.getSession().setAttribute("user", user);
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
             return;

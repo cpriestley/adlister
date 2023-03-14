@@ -4,6 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import models.User;
+import org.mindrot.jbcrypt.BCrypt;
 import services.DaoFactory;
 
 import java.io.IOException;
@@ -22,7 +23,6 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("passwordConfirmation");
-        User user = new User(username, email, password);
 
         if (DaoFactory.getUsersDao().findByUsername(username) != null ||
                 DaoFactory.getUsersDao().findByEmail(username) != null ||
@@ -31,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
+        User user = new User(username, email, BCrypt.hashpw(password, BCrypt.gensalt()));
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/profile");
     }
