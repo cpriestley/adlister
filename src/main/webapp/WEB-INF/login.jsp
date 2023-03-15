@@ -3,12 +3,12 @@
 <!doctype html>
 <html>
 <head>
-    <jsp:include page="/WEB-INF/partials/head.jsp" />
+    <jsp:include page="/WEB-INF/partials/head.jsp"/>
     <title>Login</title>
 </head>
 <body>
 <header>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
     <title>Login</title>
 </header>
 <main>
@@ -26,12 +26,15 @@
                     <input type="password" id="password" name="password" class="form-control">
                 </div>
                 <button class="btn btn-block login">Login</button>
+                <a href="./register" class="btn btn-block login" type="button">
+                    Register
+                </a>
             </fieldset>
         </form>
     </div>
 </main>
 <footer>
-    <%@include file="partials/footer.jsp"%>
+    <%@include file="partials/footer.jsp" %>
 </footer>
 </body>
 </html>
