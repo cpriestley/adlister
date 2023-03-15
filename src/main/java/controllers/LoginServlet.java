@@ -29,7 +29,14 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null && BCrypt.checkpw(request.getParameter("password"), user.getPassword())) {
             request.getSession().setAttribute("user", user);
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            String intendedRedirect = (String) request.getSession().getAttribute("intended-redirect");
+            if (intendedRedirect == null) {
+                intendedRedirect = "/WEB-INF/profile.jsp";
+
+            } else {
+                request.getSession().removeAttribute("intended-redirect");
+            }
+            request.getRequestDispatcher(intendedRedirect).forward(request, response);
             return;
         }
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
