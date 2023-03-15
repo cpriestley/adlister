@@ -25,7 +25,7 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" id="password" name="password" class="form-control">
                 </div>
-                <button class="btn btn-block">Login</button>
+                <button class="btn btn-block login">Login</button>
             </fieldset>
         </form>
     </div>
