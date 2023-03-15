@@ -4,7 +4,7 @@ import models.Ad;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import services.DaoFactory;
+import data.DaoFactory;
 
 import java.io.IOException;
 import java.util.List;

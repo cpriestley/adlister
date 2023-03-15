@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.User;
 import org.mindrot.jbcrypt.BCrypt;
-import services.DaoFactory;
+import data.DaoFactory;
 
 import java.io.IOException;
 

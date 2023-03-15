@@ -1,4 +1,4 @@
-package services;
+package data;
 
 import configs.AdlisterConnection;
 import models.User;
@@ -16,34 +16,21 @@ public class MySQLUsersDao implements Users {
     @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ?";
-        ResultSet rs;
-        User user = null;
-        try {
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, username);
-            rs = statement.executeQuery();
-            if (rs.next()) {
-                user = new User(
-                        rs.getLong("id"),
-                        rs.getString("username"),
-                        rs.getString("email"),
-                        rs.getString("password")
-                );
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return user;
+        return getUser(username, query);
     }
 
     @Override
     public User findByEmail(String email) {
         String query = "SELECT * FROM users WHERE email = ?";
+        return getUser(email, query);
+    }
+
+    private User getUser(String queryParam, String query) {
         ResultSet rs;
         User user = null;
         try {
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, email);
+            statement.setString(1, queryParam);
             rs = statement.executeQuery();
             if (rs.next()) {
                 user = new User(
