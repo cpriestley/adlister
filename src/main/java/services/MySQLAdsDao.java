@@ -1,8 +1,7 @@
 package services;
 
+import configs.AdlisterConnection;
 import models.Ad;
-import com.mysql.cj.jdbc.Driver;
-import configs.Config;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,19 +11,10 @@ public class MySQLAdsDao implements Ads {
 
     private final Connection connection;
 
-    public MySQLAdsDao(Config config) {
-
-        try {
-            DriverManager.registerDriver(new Driver());
-            connection = DriverManager
-                    .getConnection(
-                            config.getUrl(),
-                            config.getUserName(),
-                            config.getPassword());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public MySQLAdsDao(AdlisterConnection connection) {
+        this.connection = connection.getConnection();
     }
+
 
     @Override
     public List<Ad> all() {

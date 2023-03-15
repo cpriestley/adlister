@@ -1,7 +1,6 @@
 package services;
 
-import com.mysql.cj.jdbc.Driver;
-import configs.Config;
+import configs.AdlisterConnection;
 import models.User;
 
 import java.sql.*;
@@ -10,17 +9,8 @@ public class MySQLUsersDao implements Users {
 
     private final Connection connection;
 
-    public MySQLUsersDao(Config config) {
-        try {
-            DriverManager.registerDriver(new Driver());
-            this.connection = DriverManager.getConnection(
-                    config.getUrl(),
-                    config.getUserName(),
-                    config.getPassword()
-            );
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public MySQLUsersDao(AdlisterConnection connection) {
+        this.connection = connection.getConnection();
     }
 
     @Override
