@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<c:forEach var="item" items="${requestScope.ads}">
+<c:forEach var="item" items="${sessionScope.ads}">
     <div class="item">
         <h3>
             <a href="./ad/${item.id}" class="href">

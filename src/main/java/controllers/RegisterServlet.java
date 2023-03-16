@@ -1,5 +1,6 @@
 package controllers;
 
+import com.mysql.cj.util.StringUtils;
 import data.DaoFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("buttonText", "Register");
         request.getRequestDispatcher("/WEB-INF/ads/register.jsp")
                 .forward(request, response);
     }
@@ -28,6 +30,14 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("passwordConfirmation");
+
+        if (StringUtils.isNullOrEmpty(username) ||
+                StringUtils.isNullOrEmpty(email) ||
+                StringUtils.isNullOrEmpty(password) ||
+                StringUtils.isNullOrEmpty(passwordConfirmation)) {
+            response.sendRedirect("/register");
+            return;
+        }
 
         if (DaoFactory.getUsersDao().findByUsername(username) != null ||
                 DaoFactory.getUsersDao().findByEmail(username) != null ||
