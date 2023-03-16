@@ -13,21 +13,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/ads/create">Create Ad</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/hello">Hello</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/count">Count</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/pizza-order">Pizza Order</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/pickcolor">Pick Color</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/guess">Guessing Game</a>
-                </li>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath}/hello">Hello</a>--%>
+<%--                </li>--%>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath}/count">Count</a>--%>
+<%--                </li>--%>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath}/pizza-order">Pizza Order</a>--%>
+<%--                </li>--%>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath}/pickcolor">Pick Color</a>--%>
+<%--                </li>--%>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath}/guess">Guessing Game</a>--%>
+<%--                </li>--%>
             </ul>
         </div>
     </div>
