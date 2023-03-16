@@ -1,16 +1,21 @@
 package controllers;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-import models.User;
-import org.mindrot.jbcrypt.BCrypt;
 import data.DaoFactory;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import models.User;
+import services.PasswordManager;
 
 import java.io.IOException;
 
 @WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
+
+    private final PasswordManager passwordManager = new PasswordManager();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/ads/register.jsp")
@@ -30,8 +35,8 @@ public class RegisterServlet extends HttpServlet {
             response.sendRedirect("/register");
             return;
         }
-
-        User user = new User(username, email, BCrypt.hashpw(password, BCrypt.gensalt()));
+        String hash = passwordManager.hashPassword(password);
+        User user = new User(username, email, hash);
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/profile");
     }
