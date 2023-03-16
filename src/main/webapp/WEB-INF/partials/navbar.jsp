@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -7,12 +8,26 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
-                </li>
+                <c:choose>
+                    <c:when test="${sessionScope.user != null}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item">
+                            <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/ads/create">Create Ad</a>
                 </li>
+                <c:if test="${sessionScope.user != null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/profile">Profile</a>
+                    </li>
+                </c:if>
 <%--                <li class="nav-item">--%>
 <%--                    <a class="nav-link" href="${pageContext.request.contextPath}/hello">Hello</a>--%>
 <%--                </li>--%>
