@@ -1,5 +1,6 @@
 package controllers;
 
+import com.mysql.cj.util.StringUtils;
 import data.DaoFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -38,11 +39,11 @@ public class LoginServlet extends HttpServlet {
             }
         }
         request.getSession().setAttribute("user", user);
-        String intendedRedirect = "" + request.getSession().getAttribute("intended-redirect");
-        if (intendedRedirect.isEmpty()) {
-            intendedRedirect = "/WEB-INF/profile.jsp";
+        String intendedRedirect = (String) request.getSession().getAttribute("intended-redirect");
+        if (StringUtils.isNullOrEmpty(intendedRedirect)) {
+            intendedRedirect = "/profile";
         }
-        request.getRequestDispatcher(intendedRedirect).forward(request, response);
+        response.sendRedirect(intendedRedirect);
 
     }
 }

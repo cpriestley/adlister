@@ -14,16 +14,7 @@
     <div class="container">
         <h1 class="my-2">Welcome to Adlister</h1>
         <hr>
-        <c:forEach var="item" items="${requestScope.ads}">
-            <div>
-                <h3>
-                    <a href="./ad/${item.id}">
-                        <c:out value="${item.title}"/>
-                    </a>
-                </h3>
-                <p><c:out value="${item.description}"/></p>
-            </div>
-        </c:forEach>
+        <jsp:include page="/WEB-INF/partials/ads.jsp" flush="true" />
     </div>
 </main>
 <footer>

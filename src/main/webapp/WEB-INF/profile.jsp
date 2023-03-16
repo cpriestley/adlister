@@ -16,9 +16,12 @@
         <form action="./logout" method="get">
             <fieldset class="width-80">
                 <p>Welcome, ${sessionScope.user.getUsername()}</p>
-                <button class="btn btn-block logout">Logout</button>
+                <button class="btn btn-small btn-dark mt-2 logout">Logout</button>
             </fieldset>
         </form>
+    </div>
+    <div class="container">
+        <jsp:include page="/WEB-INF/partials/ads.jsp" flush="true" />
     </div>
 </main>
 <footer>
