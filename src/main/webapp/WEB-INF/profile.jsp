@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <jsp:include page="/WEB-INF/partials/head.jsp" />
+    <jsp:include page="/WEB-INF/partials/head.jsp"/>
     <title>Profile</title>
 </head>
 <body>
@@ -11,17 +11,25 @@
 </header>
 <main>
     <div class="container">
-        <h1 class="my-2">User Profile</h1>
+        <h1 class="my-2">${sessionScope.user.getUsername()}</h1>
         <hr>
         <form action="./logout" method="get">
             <fieldset class="width-80">
-                <p>Welcome, ${sessionScope.user.getUsername()}</p>
+                <p class="lead">Profile Information:</p>
+                <dl>
+                    <dt>Username</dt>
+                    <dd>${sessionScope.user.getUsername()}</dd>
+                </dl>
+                <dl>
+                    <dt>Email</dt>
+                    <dd>${sessionScope.user.getEmail()}</dd>
+                </dl>
                 <button class="btn btn-small btn-dark mt-2 logout">Logout</button>
             </fieldset>
         </form>
     </div>
     <div class="container">
-        <jsp:include page="/WEB-INF/partials/ads.jsp" flush="true" />
+        <jsp:include page="/WEB-INF/partials/ads.jsp" flush="true"/>
     </div>
 </main>
 <footer>
