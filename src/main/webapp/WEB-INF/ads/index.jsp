@@ -15,9 +15,9 @@
         <h1 class="my-2">Welcome to Adlister</h1>
         <hr>
         <c:forEach var="item" items="${requestScope.ads}">
-            <div class="item">
+            <div>
                 <h3>
-                    <a href="./ad/${item.id}" class="href">
+                    <a href="./ad/${item.id}">
                         <c:out value="${item.title}"/>
                     </a>
                 </h3>
