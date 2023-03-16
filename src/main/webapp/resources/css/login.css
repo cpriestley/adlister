@@ -90,21 +90,8 @@ fieldset {
     width: 100%;
 }
 
-
 .login, .logout {
-    /* There must be a separation of 8px between the text and the border of this element */
-    padding: 8px;
-    /* The text color of this element should be white and bold */
-    color: var(--bs-light);
-    font-weight: bold;
-    /* The border of this element should be 1px, and its color should be light grey */
-    border: 1px solid white;
-    background-color: var(--bs-gray-dark);
-}
-
-.login:hover, .logout:hover {
-    border: 1px solid var(--bs-gray-dark) !important;
-    background-color: var(--bs-light) !important;
+    min-width: 130px;
 }
 
 .form-control {
@@ -120,5 +107,10 @@ fieldset {
     width: calc(100% - 4px);
 }
 
+.account-form {
+    margin: 16px auto;
+    max-width: 400px;
+    padding: 8px
+}
 
 
