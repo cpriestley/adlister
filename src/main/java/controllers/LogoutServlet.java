@@ -16,6 +16,7 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().setAttribute("user", null);
+        request.getSession().setAttribute("userAds", null);
         request.getRequestDispatcher(ALL_ADS_JSP).forward(request, response);
     }
 }
