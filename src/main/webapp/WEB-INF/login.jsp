@@ -25,7 +25,7 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" id="password" name="password" class="form-control" required>
                 </div>
-                <button class="btn btn-small btn-dark mt-2 login">Login</button>
+                <button class="btn btn-small btn-dark mt-2 login" type="submit">Login</button>
             </fieldset>
         </form>
         <p class="text-center fst-italic fs-5 my-3">or</p>
@@ -33,9 +33,9 @@
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" id="email" name="email" class="form-control" required>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-                <button class="btn btn-small btn-dark mt-2 login">Create Account</button>
+                <button class="btn btn-small btn-dark mt-2 login" type="submit">Create Account</button>
             </fieldset>
         </form>
     </div>

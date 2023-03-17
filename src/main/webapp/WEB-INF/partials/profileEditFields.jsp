@@ -1,11 +1,11 @@
 <fieldset class="width-80">
     <div class="form-group">
         <label for="username" class="form-label">Username</label>
-        <input type="text" id="username" name="username" class="form-control">
+        <input type="text" id="username" name="username" class="form-control" value="${param.username}">
     </div>
     <div class="form-group">
         <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" name="email" class="form-control">
+        <input type="email" id="email" name="email" class="form-control" value="${param.email}">
     </div>
     <div class="form-group">
         <label for="password" class="form-label">Password</label>
@@ -15,5 +15,5 @@
         <label for="passwordConfirmation" class="form-label">Password Confirmation</label>
         <input type="password" id="passwordConfirmation" name="passwordConfirmation" class="form-control">
     </div>
-    <button class="btn btn-block" type="submit">${requestScope.buttonText}</button>
+    <button class="btn btn-small btn-dark mt-2 login" type="submit">${requestScope.buttonText}</button>
 </fieldset>
