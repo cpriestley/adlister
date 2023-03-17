@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <jsp:include page="/WEB-INF/partials/head.jsp" flush="true"/>
+    <jsp:include page="/WEB-INF/partials/head.jsp" />
     <title>Adlister</title>
 </head>
 <body>
@@ -14,7 +14,16 @@
     <div class="container">
         <h1 class="my-2">Welcome to Adlister</h1>
         <hr>
-        <jsp:include page="/WEB-INF/partials/ads.jsp" flush="true" />
+        <c:forEach var="ad" items="${sessionScope.ads}">
+            <div class="item">
+                <h3>
+                    <a href="./ad/${ad.id}" class="href">
+                        <c:out value="${ad.title}"/>
+                    </a>
+                </h3>
+                <p><c:out value="${ad.description}"/></p>
+            </div>
+        </c:forEach>
     </div>
 </main>
 <footer>
