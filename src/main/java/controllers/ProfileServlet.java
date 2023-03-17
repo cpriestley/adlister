@@ -1,5 +1,6 @@
 package controllers;
 
+import com.mysql.cj.util.StringUtils;
 import data.DaoFactory;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -33,8 +34,9 @@ public class ProfileServlet extends HttpServlet {
             String username = req.getParameter("username");
             String email = req.getParameter("email");
             String password = req.getParameter("password");
-            String passwordConfirm = req.getParameter("passwordConfirm");
-            if (username.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()) {
+            String passwordConfirm = req.getParameter("passwordConfirmation");
+            if (StringUtils.isNullOrEmpty(username) || StringUtils.isNullOrEmpty(email) ||
+                    StringUtils.isNullOrEmpty(password) || StringUtils.isNullOrEmpty(passwordConfirm)) {
                 req.setAttribute("edit", true);
                 req.setAttribute("error", "All fields are required");
                 req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
