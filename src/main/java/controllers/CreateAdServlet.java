@@ -11,10 +11,13 @@ import java.io.IOException;
 
 @WebServlet(name = "controllers.CreateAdServlet", value = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
+
+    private final String CREATE_JSP = "/WEB-INF/ads/create.jsp";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
-            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+            request.getRequestDispatcher(CREATE_JSP).forward(request, response);
             return;
         }
         request.getSession().setAttribute("intended-redirect", request.getRequestURI());

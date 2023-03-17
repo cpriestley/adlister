@@ -14,8 +14,8 @@ import java.util.List;
 @WebServlet(name = "controllers.AdsServlet", urlPatterns = {"", "/ads", "/ad/*"})
 public class AdsServlet extends HttpServlet {
 
-    public final String SINGLE_AD_JSP = "/WEB-INF/ads/ad.jsp";
-    public final String ALL_ADS_JSP = "/WEB-INF/ads/index.jsp";
+    private final String SINGLE_AD_JSP = "/WEB-INF/ads/ad.jsp";
+    private final String ALL_ADS_JSP = "/WEB-INF/ads/index.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

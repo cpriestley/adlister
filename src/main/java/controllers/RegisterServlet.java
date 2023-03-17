@@ -15,12 +15,13 @@ import java.io.IOException;
 @WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
 
+    private final String REGISTER_JSP = "/WEB-INF/ads/register.jsp";
     private final PasswordManager passwordManager = new PasswordManager();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("buttonText", "Register");
-        request.getRequestDispatcher("/WEB-INF/ads/register.jsp")
+        request.getRequestDispatcher(REGISTER_JSP)
                 .forward(request, response);
     }
 

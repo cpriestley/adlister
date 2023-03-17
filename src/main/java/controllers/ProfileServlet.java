@@ -13,6 +13,9 @@ import java.util.List;
 
 @WebServlet(name = "controllers.ProfileServlet", value = {"/profile","/edit", "/save"})
 public class ProfileServlet extends HttpServlet {
+
+    private final String PROFILE_JSP = "/WEB-INF/profile.jsp";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
@@ -24,7 +27,7 @@ public class ProfileServlet extends HttpServlet {
         request.getSession().setAttribute("ads", ads);
         request.setAttribute("edit", "/edit".equals(request.getRequestURI()));
         request.setAttribute("buttonText", "Save");
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        request.getRequestDispatcher(PROFILE_JSP).forward(request, response);
     }
 
     @Override
@@ -39,13 +42,13 @@ public class ProfileServlet extends HttpServlet {
                     StringUtils.isNullOrEmpty(password) || StringUtils.isNullOrEmpty(passwordConfirm)) {
                 req.setAttribute("edit", true);
                 req.setAttribute("error", "All fields are required");
-                req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
+                req.getRequestDispatcher(PROFILE_JSP).forward(req, resp);
                 return;
             }
             if (!password.equals(passwordConfirm)) {
                 req.setAttribute("edit", true);
                 req.setAttribute("error", "Passwords do not match");
-                req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
+                req.getRequestDispatcher(PROFILE_JSP).forward(req, resp);
                 return;
             }
             user.setUsername(username);

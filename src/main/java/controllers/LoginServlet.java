@@ -15,6 +15,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
 
+    private final String LOGIN_JSP = "/WEB-INF/login.jsp";
     private final PasswordManager passwordManager = new PasswordManager();
 
     @Override
@@ -23,7 +24,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
             return;
         }
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        request.getRequestDispatcher(LOGIN_JSP).forward(request, response);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             boolean isPassword = passwordManager.checkPassword(request.getParameter("password"), user.getPassword());
             if (!isPassword) {
                 request.setAttribute("error", "Invalid credentials.");
-                request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+                request.getRequestDispatcher(LOGIN_JSP).forward(request, response);
                 return;
             }
         }

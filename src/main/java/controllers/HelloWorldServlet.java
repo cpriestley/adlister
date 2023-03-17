@@ -10,6 +10,9 @@ import java.io.IOException;
 
 @WebServlet(name = "controllers.HelloWorldServlet", urlPatterns = {"/hello"})
 public class HelloWorldServlet extends HttpServlet {
+
+    private final String HELLO_JSP = "/WEB-INF/hello.jsp";
+
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         String name = req.getParameter("name");
         if( name == null) {
@@ -19,6 +22,6 @@ public class HelloWorldServlet extends HttpServlet {
             return;
         }
         req.setAttribute("name", name);
-        req.getRequestDispatcher("/WEB-INF/hello.jsp").forward(req, res);
+        req.getRequestDispatcher(HELLO_JSP).forward(req, res);
     }
 }

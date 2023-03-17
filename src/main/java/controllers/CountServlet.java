@@ -11,6 +11,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CountServlet", urlPatterns = {"/count"})
 public class CountServlet extends HttpServlet {
 
+    private final String COUNT_JSP = "/WEB-INF/count.jsp";
     private int counter = 0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -20,6 +21,6 @@ public class CountServlet extends HttpServlet {
                 : counter;
 
         req.setAttribute("counter", ++counter);
-        req.getRequestDispatcher("/WEB-INF/count.jsp").forward(req, res);
+        req.getRequestDispatcher(COUNT_JSP).forward(req, res);
     }
 }

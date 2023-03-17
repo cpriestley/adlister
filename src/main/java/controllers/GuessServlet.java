@@ -11,6 +11,7 @@ import java.util.random.RandomGenerator;
 @WebServlet(name = "controllers.GuessServlet", value = "/guess")
 public class GuessServlet extends HttpServlet {
 
+    private final String GUESS_JSP = "/WEB-INF/guess.jsp";
     private String answer = getRandom();
     boolean inProgress = true;
 
@@ -24,7 +25,7 @@ public class GuessServlet extends HttpServlet {
             answer = getRandom();
             inProgress = true;
         }
-        request.getRequestDispatcher("/WEB-INF/guess.jsp").forward(request, response);
+        request.getRequestDispatcher(GUESS_JSP).forward(request, response);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class GuessServlet extends HttpServlet {
         List<String> possibles = List.of("1", "2", "3");
 
         if (!possibles.contains(guess)){
-            request.getRequestDispatcher("/WEB-INF/guess.jsp").forward(request, response);
+            request.getRequestDispatcher(GUESS_JSP).forward(request, response);
             return;
         }
 
