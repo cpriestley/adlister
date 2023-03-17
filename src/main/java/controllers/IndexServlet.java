@@ -16,8 +16,12 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Ad> ads = DaoFactory.getAdsDao().all();
-        request.getSession().setAttribute("ads", ads);
+        List<Ad> ads = (List<Ad>) request.getSession().getAttribute("ads");
+        if (ads == null) {
+            ads = DaoFactory.getAdsDao().all();
+            request.getSession().setAttribute("ads", ads);
+        }
+
         request.getRequestDispatcher(ALL_ADS_JSP).forward(request, response);
     }
 
