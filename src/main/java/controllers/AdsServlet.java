@@ -11,7 +11,7 @@ import models.Ad;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "controllers.AdsServlet", urlPatterns = {"", "/ads", "/ad/*"})
+@WebServlet(name = "controllers.AdsServlet", urlPatterns = {"/ads", "/ad/*"})
 public class AdsServlet extends HttpServlet {
 
     private final String SINGLE_AD_JSP = "/WEB-INF/ads/ad.jsp";
