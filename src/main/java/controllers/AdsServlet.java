@@ -11,11 +11,11 @@ import models.Ad;
 import java.io.IOException;
 import java.util.List;
 
+import static services.AdlisterConstants.ALL_ADS_JSP;
+import static services.AdlisterConstants.SINGLE_AD_JSP;
+
 @WebServlet(name = "controllers.AdsServlet", urlPatterns = {"/ads", "/ad/*"})
 public class AdsServlet extends HttpServlet {
-
-    private final String SINGLE_AD_JSP = "/WEB-INF/ads/ad.jsp";
-    private final String ALL_ADS_JSP = "/WEB-INF/ads/index.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

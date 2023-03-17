@@ -12,10 +12,11 @@ import services.PasswordManager;
 
 import java.io.IOException;
 
+import static services.AdlisterConstants.LOGIN_JSP;
+
 @WebServlet(name = "controllers.LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
 
-    private final String LOGIN_JSP = "/WEB-INF/login.jsp";
     private final PasswordManager passwordManager = new PasswordManager();
 
     @Override

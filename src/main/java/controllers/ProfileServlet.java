@@ -12,10 +12,10 @@ import services.PasswordManager;
 import java.io.IOException;
 import java.util.List;
 
+import static services.AdlisterConstants.PROFILE_JSP;
+
 @WebServlet(name = "controllers.ProfileServlet", value = {"/profile","/edit", "/save"})
 public class ProfileServlet extends HttpServlet {
-
-    private final String PROFILE_JSP = "/WEB-INF/profile.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

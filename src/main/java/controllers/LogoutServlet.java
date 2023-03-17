@@ -8,10 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+import static services.AdlisterConstants.ALL_ADS_JSP;
+
 @WebServlet(name = "controllers.LogoutServlet", value = "/logout")
 public class LogoutServlet extends HttpServlet {
-
-    private final String ALL_ADS_JSP = "/WEB-INF/index.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

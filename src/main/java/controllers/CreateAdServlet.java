@@ -9,10 +9,10 @@ import data.DaoFactory;
 
 import java.io.IOException;
 
+import static services.AdlisterConstants.CREATE_JSP;
+
 @WebServlet(name = "controllers.CreateAdServlet", value = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
-
-    private final String CREATE_JSP = "/WEB-INF/ads/create.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

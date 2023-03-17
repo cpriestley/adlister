@@ -12,10 +12,10 @@ import services.PasswordManager;
 
 import java.io.IOException;
 
+import static services.AdlisterConstants.REGISTER_JSP;
+
 @WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
-
-    private final String REGISTER_JSP = "/WEB-INF/ads/register.jsp";
     private final PasswordManager passwordManager = new PasswordManager();
 
     @Override

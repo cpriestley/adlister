@@ -9,10 +9,11 @@ import models.Ad;
 import java.io.IOException;
 import java.util.List;
 
+import static services.AdlisterConstants.ALL_ADS_JSP;
+
 @WebServlet(name = "IndexServlet", value = "")
 public class IndexServlet extends HttpServlet {
 
-    private final String ALL_ADS_JSP = "/WEB-INF/index.jsp";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Ad> ads = DaoFactory.getAdsDao().all();
