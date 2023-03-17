@@ -7,6 +7,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import models.Ad;
 import models.User;
+import services.PasswordManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,9 +52,11 @@ public class ProfileServlet extends HttpServlet {
                 req.getRequestDispatcher(PROFILE_JSP).forward(req, resp);
                 return;
             }
+            PasswordManager passwordManager = new PasswordManager();
+            String hash = passwordManager.hashPassword(password);
             user.setUsername(username);
             user.setEmail(email);
-            user.setPassword(password);
+            user.setPassword(hash);
             boolean success = DaoFactory.getUsersDao().update(user);
             if (success) {
                 req.getSession().setAttribute("user", user);
