@@ -14,25 +14,17 @@ public class AdsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Ad> ads = DaoFactory.getAdsDao().all();
-        request.getSession().setAttribute("ads", ads);
-        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
-
         String uri = request.getRequestURI();
-        if (uri == null) {
-            response.sendRedirect("/ads");
-            return;
-        }
         String[] pathParts = uri.split("/");
-        if (pathParts.length < 2) {
-            response.sendRedirect("/ads");
+        if (pathParts.length < 3) {
+            List<Ad> ads = DaoFactory.getAdsDao().all();
+            request.getSession().setAttribute("ads", ads);
+            request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
             return;
         }
-        String adId = pathParts[1];
+        String adId = pathParts[pathParts.length - 1];
         Ad ad = DaoFactory.getAdsDao().findAdById(Long.parseLong(adId));
         request.setAttribute("ad", ad);
         request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
-
-
     }
 }
