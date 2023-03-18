@@ -11,7 +11,7 @@
 </header>
 <main>
     <div class="container">
-        <form action="./guess" method="post" id="guessing-game-form">
+        <form action="${pageContext.request.contextPath}/guess" method="post" id="guessing-game-form">
             <div class="mb-3">
                 <label class="form-label">Pick A Number Between 1 and 3</label>
             </div>

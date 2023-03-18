@@ -276,7 +276,7 @@
         </div>
         <footer class="card-footer d-flex justify-content-end">
           <nav class="nav nav-tab" id="toppings-footer">
-            <form action="./pizza-order" method="post" id="order-submission">
+            <form action="${pageContext.request.contextPath}/pizza-order" method="post" id="order-submission">
               <input type="hidden" name="crust" id="crust" value="Crispy Thin">
               <input type="hidden" name="sauce" id="sauce" value="Tomato">
               <input type="hidden" name="size" id="size" value='Medium (12")'>

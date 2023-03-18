@@ -11,7 +11,7 @@
 </header>
 <main>
     <div class="container">
-        <form action="./viewcolor" method="get" id="color-picker-form">
+        <form action="${pageContext.request.contextPath}/viewcolor" method="get" id="color-picker-form">
             <div class="mb-3">
                 <label for="color" class="form-label">Enter Your Favorite Color</label>
                 <input type="text" class="form-control" id="color" name="color">
