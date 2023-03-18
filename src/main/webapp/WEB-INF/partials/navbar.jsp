@@ -25,7 +25,7 @@
                 </li>
                 <c:if test="${sessionScope.user != null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/profile">Profile</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/user/profile">Profile</a>
                     </li>
                 </c:if>
 <%--                <li class="nav-item">--%>

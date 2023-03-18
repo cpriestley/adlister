@@ -13,6 +13,7 @@ import services.PasswordManager;
 import java.io.IOException;
 
 import static services.AdlisterConstants.LOGIN_JSP;
+import static services.AdlisterConstants.PROFILE_JSP;
 
 @WebServlet(name = "controllers.LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
@@ -22,7 +23,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            request.getRequestDispatcher(PROFILE_JSP).forward(request, response);
             return;
         }
         request.getRequestDispatcher(LOGIN_JSP).forward(request, response);
@@ -43,7 +44,7 @@ public class LoginServlet extends HttpServlet {
         request.getSession().setAttribute("user", user);
         String intendedRedirect = (String) request.getSession().getAttribute("intended-redirect");
         if (StringUtils.isNullOrEmpty(intendedRedirect)) {
-            intendedRedirect = "/profile";
+            intendedRedirect = "/user/profile";
         }
         response.sendRedirect(intendedRedirect);
 

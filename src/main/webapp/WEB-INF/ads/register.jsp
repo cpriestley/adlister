@@ -12,7 +12,7 @@
     <div class="container m-auto">
         <h1 class="my-2">New User Registration</h1>
         <hr>
-        <form action="./register" method="post" class="needs-validation" novalidate>
+        <form action="${pageContext.request.contextPath}/user/register" method="post" class="needs-validation" novalidate>
             <jsp:include page="/WEB-INF/partials/profileEditFields.jsp" flush="true" />
         </form>
     </div>

@@ -14,8 +14,8 @@ import java.util.List;
 import static services.AdlisterConstants.ALL_ADS_JSP;
 import static services.AdlisterConstants.SINGLE_AD_JSP;
 
-@WebServlet(name = "controllers.AdsServlet", urlPatterns = {"/ads", "/ad/*"})
-public class AdsServlet extends HttpServlet {
+@WebServlet(name = "controllers.AdsServlet", urlPatterns = {"/ad", "/ad/*"})
+public class AdReadServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

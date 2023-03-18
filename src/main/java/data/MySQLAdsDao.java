@@ -40,7 +40,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public Long insert(Ad ad) {
+    public long insert(Ad ad) {
         String query = "INSERT INTO ads (user_id, title, description) VALUES (?, ?, ?)";
         ResultSet rs;
         try {
@@ -77,6 +77,32 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException(e);
         }
         return ad;
+    }
+
+    @Override
+    public int update(Ad ad) {
+        try {
+            String query = "Update ads SET title = ?, description = ? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, ad.getDescription());
+            statement.setString(2, ad.getTitle());
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public int delete(long id) {
+        System.out.println("Deleted Ad: " + id);
+        String query = "DELETE FROM ads WHERE id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setLong(1, id);
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

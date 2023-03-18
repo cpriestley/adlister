@@ -15,7 +15,7 @@
     <div class="container m-auto">
         <h1 class="my-2">Login</h1>
         <hr>
-        <form action="./login" method="post" id="login" class="p-1 my-1 mx-auto w-50">
+        <form action="${pageContext.request.contextPath}/login" method="post" id="login" class="p-1 my-1 mx-auto w-50">
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
@@ -29,7 +29,7 @@
             </fieldset>
         </form>
         <p class="text-center fst-italic fs-5 my-3">or</p>
-        <form action="./register" method="get" id="register" class="p-1 my-1 mx-auto w-50">
+        <form action="${pageContext.request.contextPath}/user/register" method="get" id="register" class="p-1 my-1 mx-auto w-50">
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>

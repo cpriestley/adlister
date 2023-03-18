@@ -15,12 +15,12 @@
         <hr>
         <c:choose>
             <c:when test="${requestScope.edit eq true}">
-                <form action="./save" method="post">
+                <form action="${pageContext.request.contextPath}/user/update" method="post">
                     <jsp:include page="/WEB-INF/partials/profileEditFields.jsp" flush="true" />
                 </form>
             </c:when>
             <c:otherwise>
-                <form action="./edit" method="get">
+                <form action="${pageContext.request.contextPath}/user/update" method="get">
                     <fieldset class="width-80">
                         <p class="lead">Profile Information:</p>
                         <dl>
@@ -40,12 +40,15 @@
     <div class="container">
         <c:forEach var="ad" items="${sessionScope.userAds}">
             <div class="item">
-                <h3>
-                    <a href="./ad/${ad.id}" class="href">
+                <span><a href="#">edit</a></span>
+                <form id="${ad.id}" action="/ad/delete/${ad.id}" method="post" class="d-inline p-0 m-0">
+                    <a href="javascript:document.getElementById(${ad.id}).submit();">delete</a>
+                </form>
+                <span>
+                    <a href="/ad/${ad.id}">
                         <c:out value="${ad.title}"/>
                     </a>
-                </h3>
-                <p><c:out value="${ad.description}"/></p>
+                </span>
             </div>
         </c:forEach>
     </div>
