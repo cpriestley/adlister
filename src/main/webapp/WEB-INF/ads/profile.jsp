@@ -40,15 +40,13 @@
     <div class="container">
         <c:forEach var="ad" items="${sessionScope.userAds}">
             <div class="item">
-                <span><a href="#">edit</a></span>
-                <form id="${ad.id}" action="/ad/delete/${ad.id}" method="post" class="d-inline p-0 m-0">
-                    <a href="javascript:document.getElementById(${ad.id}).submit();">delete</a>
+                <form id="ad-update-${ad.id}" action="/ad/update/${ad.id}" method="get" class="d-inline p-0 m-0">
+                    <a href="javascript:document.getElementById('ad-update-${ad.id}').submit();">edit</a>
                 </form>
-                <span>
-                    <a href="/ad/${ad.id}">
-                        <c:out value="${ad.title}"/>
-                    </a>
-                </span>
+                <form id="ad-delete-${ad.id}" action="/ad/delete/${ad.id}" method="post" class="d-inline p-0 m-0">
+                    <a href="javascript:document.getElementById('ad-delete-${ad.id}').submit();">delete</a>
+                </form>
+                <a href="/ad/${ad.id}"><c:out value="${ad.title}"/></a>
             </div>
         </c:forEach>
     </div>

@@ -84,8 +84,9 @@ public class MySQLAdsDao implements Ads {
         try {
             String query = "Update ads SET title = ?, description = ? WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, ad.getDescription());
-            statement.setString(2, ad.getTitle());
+            statement.setString(1, ad.getTitle());
+            statement.setString(2, ad.getDescription());
+            statement.setLong(3, ad.getId());
             return statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
