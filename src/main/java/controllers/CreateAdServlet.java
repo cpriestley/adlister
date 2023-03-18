@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static services.AdlisterConstants.CREATE_JSP;
 
-@WebServlet(name = "controllers.CreateAdServlet", value = "/ads/create")
+@WebServlet(name = "controllers.CreateAdServlet", value = "/ad/create")
 public class CreateAdServlet extends HttpServlet {
 
     @Override

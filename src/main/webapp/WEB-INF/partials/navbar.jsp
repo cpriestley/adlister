@@ -21,7 +21,7 @@
                     </c:otherwise>
                 </c:choose>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/ads/create">Create Ad</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/ad/create">Create Ad</a>
                 </li>
                 <c:if test="${sessionScope.user != null}">
                     <li class="nav-item">
