@@ -16,6 +16,7 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        @SuppressWarnings("unchecked")
         List<Ad> ads = (List<Ad>) request.getSession().getAttribute("ads");
         if (ads == null) {
             ads = DaoFactory.getAdsDao().all();

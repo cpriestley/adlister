@@ -24,6 +24,7 @@ public class UserReadServlet extends HttpServlet {
             return;
         }
         User user = (User) request.getSession().getAttribute("user");
+        @SuppressWarnings("unchecked")
         List<Ad> ads = (List<Ad>) request.getSession().getAttribute("userAds");
         if (ads == null) {
             ads = DaoFactory.getAdsDao().findAdsByUserId(user.getId());
