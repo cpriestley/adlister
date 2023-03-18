@@ -11,7 +11,7 @@ import java.util.random.RandomGenerator;
 @WebServlet(name = "controllers.GuessServlet", value = "/guess")
 public class GuessServlet extends HttpServlet {
 
-    private final String GUESS_JSP = "/WEB-INF/guess.jsp";
+    private final String GUESS_JSP = "/WEB-INF/non-ads/guess.jsp";
     private String answer = getRandom();
     boolean inProgress = true;
 
@@ -44,6 +44,6 @@ public class GuessServlet extends HttpServlet {
         } else {
             request.setAttribute("outcome", "You guessed incorrectly!");
         }
-        request.getRequestDispatcher("/WEB-INF/guessOutcome.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/non-ads/guessOutcome.jsp").forward(request, response);
     }
 }

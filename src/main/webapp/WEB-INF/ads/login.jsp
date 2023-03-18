@@ -41,7 +41,7 @@
     </div>
 </main>
 <footer>
-    <%@include file="partials/footer.jsp" %>
+    <%@include file="../partials/footer.jsp" %>
 </footer>
 </body>
 </html>

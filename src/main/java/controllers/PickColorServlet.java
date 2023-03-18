@@ -9,7 +9,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.PickColorServlet", urlPatterns = {"/pickcolor"})
 public class PickColorServlet extends HttpServlet {
 
-    private final String PICK_COLOR_JSP = "/WEB-INF/pickColor.jsp";
+    private final String PICK_COLOR_JSP = "/WEB-INF/non-ads/pickColor.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

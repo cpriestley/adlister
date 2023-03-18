@@ -9,7 +9,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.PizzaOrderServlet", value = "/pizza-order")
 public class PizzaOrderServlet extends HttpServlet {
 
-    private final String PIZZA_ORDER_JSP = "/WEB-INF/pizzaOrder.jsp";
+    private final String PIZZA_ORDER_JSP = "/WEB-INF/non-ads/pizzaOrder.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

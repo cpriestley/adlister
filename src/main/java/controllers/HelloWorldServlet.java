@@ -11,7 +11,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.HelloWorldServlet", urlPatterns = {"/hello"})
 public class HelloWorldServlet extends HttpServlet {
 
-    private final String HELLO_JSP = "/WEB-INF/hello.jsp";
+    private final String HELLO_JSP = "/WEB-INF/non-ads/hello.jsp";
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         String name = req.getParameter("name");
