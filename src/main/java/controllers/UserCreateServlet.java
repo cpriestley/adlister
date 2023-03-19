@@ -1,6 +1,5 @@
 package controllers;
 
-import com.mysql.cj.util.StringUtils;
 import data.DaoFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,7 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.User;
+import models.UserRegistration;
+import models.ValidationResult;
 import services.PasswordManager;
+import services.ValidationService;
 
 import java.io.IOException;
 
@@ -27,27 +29,32 @@ public class UserCreateServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String passwordConfirmation = request.getParameter("passwordConfirmation");
 
-        if (StringUtils.isNullOrEmpty(username) ||
-                StringUtils.isNullOrEmpty(email) ||
-                StringUtils.isNullOrEmpty(password) ||
-                StringUtils.isNullOrEmpty(passwordConfirmation)) {
+        boolean isValid = passwordManager.checkPasswordsAreValid(
+                request.getParameter("password"),
+                request.getParameter("passwordConfirmation"));
+        String hash = passwordManager.hashPassword(request.getParameter("password"));
+
+        if (!isValid) {
             response.sendRedirect("/user/register");
             return;
         }
 
-        if (DaoFactory.getUsersDao().findByUsername(username) != null ||
-                DaoFactory.getUsersDao().findByEmail(username) != null ||
-                !password.equals(passwordConfirmation)) {
+        UserRegistration registration = new UserRegistration(
+                request.getParameter("username"),
+                request.getParameter("email"),
+                request.getParameter("password"),
+                request.getParameter("passwordConfirmation")
+        );
+
+
+        ValidationResult vResult = ValidationService.validate(registration);
+        if(!vResult.isValid()) {
             response.sendRedirect("/user/register");
             return;
         }
-        String hash = passwordManager.hashPassword(password);
-        User user = new User(username, email, hash);
+
+        User user = new User(registration.getUsername(), registration.getEmail(), hash);
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/user/profile");
     }
