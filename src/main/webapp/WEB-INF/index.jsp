@@ -17,7 +17,7 @@
         <c:forEach var="ad" items="${sessionScope.ads}">
             <div class="item">
                 <h3>
-                    <a href="${pageContext.request.contextPath}/ad/${ad.id}" class="href">
+                    <a href="${pageContext.request.contextPath}/ads/${ad.id}" class="href">
                         <c:out value="${ad.title}"/>
                     </a>
                 </h3>

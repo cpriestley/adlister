@@ -13,7 +13,7 @@
     <div class="container">
         <h1 class="my-2">Edit Ad</h1>
         <hr>
-        <form action="${pageContext.request.contextPath}/ad/update/${sessionScope.ad.id}" method="post">
+        <form action="${pageContext.request.contextPath}/ads/update/${sessionScope.ad.id}" method="post">
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="title" class="form-label">Title</label>

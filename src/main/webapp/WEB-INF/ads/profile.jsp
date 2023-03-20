@@ -15,12 +15,12 @@
         <hr>
         <c:choose>
             <c:when test="${requestScope.edit eq true}">
-                <form action="${pageContext.request.contextPath}/user/update" method="post">
+                <form action="${pageContext.request.contextPath}/users/update" method="post">
                     <jsp:include page="/WEB-INF/partials/profileEditFields.jsp" flush="true" />
                 </form>
             </c:when>
             <c:otherwise>
-                <form action="${pageContext.request.contextPath}/user/update" method="get">
+                <form action="${pageContext.request.contextPath}/users/update" method="get">
                     <fieldset class="width-80">
                         <p class="lead">Profile Information:</p>
                         <dl>
@@ -40,13 +40,13 @@
     <div class="container">
         <c:forEach var="ad" items="${sessionScope.userAds}">
             <div class="item">
-                <form id="ad-update-${ad.id}" action="/ad/update/${ad.id}" method="get" class="d-inline p-0 m-0">
+                <form id="ad-update-${ad.id}" action="/ads/update/${ad.id}" method="get" class="d-inline p-0 m-0">
                     <a href="javascript:document.getElementById('ad-update-${ad.id}').submit();">edit</a>
                 </form>
-                <form id="ad-delete-${ad.id}" action="/ad/delete/${ad.id}" method="post" class="d-inline p-0 m-0">
+                <form id="ad-delete-${ad.id}" action="/ads/delete/${ad.id}" method="post" class="d-inline p-0 m-0">
                     <a href="javascript:document.getElementById('ad-delete-${ad.id}').submit();">delete</a>
                 </form>
-                <a href="/ad/${ad.id}"><c:out value="${ad.title}"/></a>
+                <a href="/ads/${ad.id}"><c:out value="${ad.title}"/></a>
             </div>
         </c:forEach>
     </div>

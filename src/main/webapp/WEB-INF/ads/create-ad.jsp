@@ -13,7 +13,7 @@
     <div class="container">
         <h1 class="my-2">Create a new Ad</h1>
         <hr>
-        <form action="${pageContext.request.contextPath}/ad/create" method="post">
+        <form action="${pageContext.request.contextPath}/ads/create" method="post">
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="title" class="form-label">Title</label>

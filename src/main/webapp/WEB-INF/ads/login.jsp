@@ -28,7 +28,7 @@
             </fieldset>
         </form>
         <p class="text-center fst-italic fs-5 my-3">or</p>
-        <form action="${pageContext.request.contextPath}/user/register" method="get" id="register" class="p-1 my-1 mx-auto w-50">
+        <form action="${pageContext.request.contextPath}/users/register" method="get" id="register" class="p-1 my-1 mx-auto w-50">
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>
