@@ -9,7 +9,6 @@
 <body>
 <header>
     <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-    <title>Login</title>
 </header>
 <main>
     <div class="container m-auto">
