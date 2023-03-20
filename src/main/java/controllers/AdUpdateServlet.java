@@ -13,7 +13,7 @@ import java.util.List;
 
 import static services.AdlisterConstants.EDIT_JSP;
 
-@WebServlet(name = "UpdateAdServlet", value = "/ad/update/*")
+@WebServlet(name = "UpdateAdServlet", value = "/ads/update/*")
 public class AdUpdateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,6 +39,6 @@ public class AdUpdateServlet extends HttpServlet {
         DaoFactory.getAdsDao().update(ad);
         ads.set(index, ad);
         request.getSession().setAttribute("userAds", ads);
-        response.sendRedirect("/user/profile");
+        response.sendRedirect("/users/profile");
     }
 }

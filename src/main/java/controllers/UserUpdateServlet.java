@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static services.AdlisterConstants.PROFILE_JSP;
 
-@WebServlet(name = "UserUpdateServlet", value = "/user/update")
+@WebServlet(name = "UserUpdateServlet", value = "/users/update")
 public class UserUpdateServlet extends HttpServlet {
 
     @Override
@@ -57,6 +57,6 @@ public class UserUpdateServlet extends HttpServlet {
         if (rowsAffected == 1) {
             req.getSession().setAttribute("user", user);
         }
-        resp.sendRedirect("/user/profile");
+        resp.sendRedirect("/users/profile");
     }
 }

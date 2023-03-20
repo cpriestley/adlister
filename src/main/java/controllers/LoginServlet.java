@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
         request.getSession().setAttribute("user", user);
         String intendedRedirect = (String) request.getSession().getAttribute("intended-redirect");
         if (StringUtils.isNullOrEmpty(intendedRedirect)) {
-            intendedRedirect = "/user/profile";
+            intendedRedirect = "/users/profile";
         }
         response.sendRedirect(intendedRedirect);
 

@@ -11,7 +11,7 @@ import models.User;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "DeleteAdServlet", value = "/ad/delete/*")
+@WebServlet(name = "DeleteAdServlet", value = "/ads/delete/*")
 public class AdDeleteServlet extends HttpServlet {
 
     @Override
@@ -25,6 +25,6 @@ public class AdDeleteServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         List<Ad> ads = DaoFactory.getAdsDao().findAdsByUserId(user.getId());
         request.getSession().setAttribute("userAds", ads);
-        response.sendRedirect("/user/profile");
+        response.sendRedirect("/users/profile");
     }
 }

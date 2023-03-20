@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static services.AdlisterConstants.CREATE_JSP;
 
-@WebServlet(name = "controllers.CreateAdServlet", value = "/ad/create")
+@WebServlet(name = "controllers.CreateAdServlet", value = "/ads/create")
 public class AdCreateServlet extends HttpServlet {
 
     @Override
@@ -45,7 +45,7 @@ public class AdCreateServlet extends HttpServlet {
         );
         long id = DaoFactory.getAdsDao().insert(ad);
         System.out.printf("Inserted Ad with ID: %d%n", id);
-        response.sendRedirect("/ad");
+        response.sendRedirect("/ads");
     }
 
     private boolean isNullEmptyOrWhiteSpaceOnly(String str) {

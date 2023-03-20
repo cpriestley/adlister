@@ -14,7 +14,7 @@ import java.util.List;
 
 import static services.AdlisterConstants.PROFILE_JSP;
 
-@WebServlet(name = "controllers.ProfileServlet", value = {"/user/profile"})
+@WebServlet(name = "controllers.ProfileServlet", value = {"/users/profile"})
 public class UserReadServlet extends HttpServlet {
 
     @Override
@@ -30,7 +30,7 @@ public class UserReadServlet extends HttpServlet {
             ads = DaoFactory.getAdsDao().findAdsByUserId(user.getId());
             request.getSession().setAttribute("userAds", ads);
         }
-        request.setAttribute("edit", "/user/update".equals(request.getRequestURI()));
+        request.setAttribute("edit", "/users/update".equals(request.getRequestURI()));
         request.setAttribute("buttonText", "Save");
         request.getRequestDispatcher(PROFILE_JSP).forward(request, response);
     }

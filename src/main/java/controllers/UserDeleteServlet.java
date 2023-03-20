@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "UserDeleteServlet", value = "/user/delete/*")
+@WebServlet(name = "UserDeleteServlet", value = "/users/delete/*")
 public class UserDeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
