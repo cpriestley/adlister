@@ -3,22 +3,22 @@ package data;
 import configs.AdlisterConnection;
 
 public class DaoFactory {
-    private static Ads adsDao;
-    private static Users usersDao;
+    private static AdsRepository adsRepositoryDao;
+    private static UsersRepository usersRepositoryDao;
 
     private static final AdlisterConnection connection = new AdlisterConnection();
 
-    public static Ads getAdsDao() {
-        if (adsDao == null) {
-            adsDao = new MySQLAdsDao(connection);
+    public static AdsRepository getAdsDao() {
+        if (adsRepositoryDao == null) {
+            adsRepositoryDao = new MySQLAdsRepositoryDao(connection);
         }
-        return adsDao;
+        return adsRepositoryDao;
     }
 
-    public static Users getUsersDao() {
-        if (usersDao == null) {
-            usersDao = new MySQLUsersDao(connection);
+    public static UsersRepository getUsersDao() {
+        if (usersRepositoryDao == null) {
+            usersRepositoryDao = new MySQLUsersDaoRepository(connection);
         }
-        return usersDao;
+        return usersRepositoryDao;
     }
 }

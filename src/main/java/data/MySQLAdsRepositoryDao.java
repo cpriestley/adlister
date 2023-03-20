@@ -7,11 +7,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLAdsDao implements Ads {
+public class MySQLAdsRepositoryDao implements AdsRepository {
 
     private final Connection connection;
 
-    public MySQLAdsDao(AdlisterConnection connection) {
+    public MySQLAdsRepositoryDao(AdlisterConnection connection) {
         this.connection = connection.getConnection();
     }
 

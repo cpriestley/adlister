@@ -5,11 +5,11 @@ import models.User;
 
 import java.sql.*;
 
-public class MySQLUsersDao implements Users {
+public class MySQLUsersDaoRepository implements UsersRepository {
 
     private final Connection connection;
 
-    public MySQLUsersDao(AdlisterConnection connection) {
+    public MySQLUsersDaoRepository(AdlisterConnection connection) {
         this.connection = connection.getConnection();
     }
 
