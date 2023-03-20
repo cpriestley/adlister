@@ -15,4 +15,5 @@ public interface Ads {
     List<Ad> findAdsByUserId(long id);
     int update(Ad ad);
     int delete(long id);
+    List<Ad> search(String[] searchTerms);
 }
