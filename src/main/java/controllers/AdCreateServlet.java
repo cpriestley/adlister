@@ -10,6 +10,8 @@ import models.Ad;
 import models.User;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import static services.AdlisterConstants.CREATE_JSP;
 
@@ -19,6 +21,10 @@ public class AdCreateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
+            List<String> categories = DaoFactory.getCategoriesDao().getCategories();
+            Map<String, List<String>> subCategories = DaoFactory.getCategoriesDao().getAllSubCategories();
+            request.getSession().setAttribute("categories", categories);
+            request.getSession().setAttribute("subCategoryMap", subCategories);
             request.getRequestDispatcher(CREATE_JSP).forward(request, response);
             return;
         }
@@ -30,8 +36,10 @@ public class AdCreateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
         String title = request.getParameter("title");
+        String category = request.getParameter("category");
+        String[] subCategories = request.getParameterValues("subcategory");
 
-        if (isNullEmptyOrWhiteSpaceOnly(title)) {
+        if (isNullEmptyOrWhiteSpaceOnly(title) || isNullEmptyOrWhiteSpaceOnly(category)) {
             request.getRequestDispatcher(CREATE_JSP).forward(request, response);
             return;
         }
@@ -43,8 +51,14 @@ public class AdCreateServlet extends HttpServlet {
                 title,
                 description
         );
-        long id = DaoFactory.getAdsDao().insert(ad);
-        System.out.printf("Inserted Ad with ID: %d%n", id);
+        long adId = DaoFactory.getAdsDao().insert(ad);
+        ad.setId(adId);
+        System.out.println("DaoFactory.getAdsDao().insert(ad): " + adId);
+        long categoryId = DaoFactory.getCategoriesDao().insertAdCategory(adId, category);
+        System.out.println("DaoFactory.getCategoriesDao().insertAdCategory(ad, category): " + categoryId);
+        List<Long> ids = DaoFactory.getCategoriesDao().insertAdSubategories(adId, categoryId, subCategories);
+        System.out.println("DaoFactory.getCategoriesDao().insertAdSubategories(ad, subCategories): " + ids);
+        System.out.printf("Inserted Ad with ID: %d%n",  adId);
         response.sendRedirect("/ads");
     }
 

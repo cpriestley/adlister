@@ -5,6 +5,7 @@ import configs.AdlisterConnection;
 public class DaoFactory {
     private static AdsRepository adsRepositoryDao;
     private static UsersRepository usersRepositoryDao;
+    private static MySQLCategoriesRepository mySQLCategoriesRepositoryDao;
 
     private static final AdlisterConnection connection = new AdlisterConnection();
 
@@ -20,5 +21,12 @@ public class DaoFactory {
             usersRepositoryDao = new MySQLUsersDaoRepository(connection);
         }
         return usersRepositoryDao;
+    }
+
+    public static MySQLCategoriesRepository getCategoriesDao() {
+        if (mySQLCategoriesRepositoryDao == null) {
+            mySQLCategoriesRepositoryDao = new MySQLCategoriesRepository(connection);
+        }
+        return mySQLCategoriesRepositoryDao;
     }
 }
