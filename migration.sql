@@ -11,7 +11,11 @@ CREATE TABLE users
     id       INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(240) NOT NULL UNIQUE,
     email    VARCHAR(240) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    role_id  INT UNSIGNED NOT NULL DEFAULT 1,
+    FOREIGN KEY (role_id)
+        REFERENCES roles (id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE ads
@@ -23,6 +27,12 @@ CREATE TABLE ads
     FOREIGN KEY (user_id)
         REFERENCES users (id)
         ON DELETE CASCADE
+);
+
+CREATE TABLE roles
+(
+    id   INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)  NOT NULL
 );
 
 # create table ads
