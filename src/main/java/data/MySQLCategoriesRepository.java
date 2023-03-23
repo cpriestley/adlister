@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-public class MySQLCategoriesRepository implements Categories {
+public class MySQLCategoriesRepository implements CategoriesRepository {
 
     private final Connection connection;
 

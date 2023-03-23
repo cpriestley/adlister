@@ -3,7 +3,7 @@ package data;
 import java.util.List;
 import java.util.Map;
 
-public interface Categories {
+public interface CategoriesRepository {
     List<String> getCategories();
     Map<String, List<String>> getAllSubCategories();
     long insertAdCategory(long foreignKeyId, String category);
